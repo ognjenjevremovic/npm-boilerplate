@@ -1,0 +1,47 @@
+{
+  "name": "module-name",
+  "version": "0.0.1",
+  "description": "Don't forget to add a description here and tell something about the project",
+  "author": "Ognjen Jevremović <jevremovic.ognjen@gmail.com> (https://github.com/ognjenjevremovic)",
+  "homepage": "https://github.com/ognjenjevremovic/module-name",
+  "bugs": {
+    "url": "https://github.com/ognjenjevremovic/module-name/issues",
+    "email": "ognjen.jevremovic@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ognjenjevremovic/module-name.git"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "mocha ./tests/spec.js",
+    
+    "compile" : "npm run remove:compiled && npm run tsc && npm run move:test && npm run move:base",
+    "remove:compiled": "npm run remove:dist && npm run remove:tests",
+
+    "tsc": "tsc",
+
+    "move:base" : "cp -ap dist/lib/* dist/ && rm -rf dist/lib",
+    "move:test" : "cp -ap dist/tests/* tests/ && rm -rf dist/tests",
+
+    "remove:tests": "rm -f tests/*.js && rm -f tests/*.js.map && rm -f tests/*.d.ts && rm -f tests/**/*.js && rm -f tests/**/*.js.map && rm -f tests/**/*.d.ts",
+    "remove:dist": "rm -f ./dist/*.js && rm -f ./dist/*.js.map && rm -f ./dist/**/*.js && rm -f ./dist/**/*.js.map"
+  },
+  "keywords": [
+    "pretty-easy-dates",
+    "pretty-easy-*",
+    "pretty-easy",
+    "prettyeasy"
+  ],
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.8",
+    "mocha": "^3.2.0",
+    "typescript": "^2.2.1"
+  }
+}
