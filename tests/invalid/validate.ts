@@ -1,31 +1,33 @@
 //  Dependancie
 import * as assert from 'assert';
 
-import { default as _ } from '../..';
+import { default as npmModule } from '../..';
 
 
-//  Should return an Error
-const shouldReturnError: string = 'Should return an instance of Error ->';
+//  What should the module return
+const shouldReturn : string = 'Should return an instance of Error class ->';
 
 
 /**
  * @description
- *  Check if the value returns
- *  a new instance of Error
- *  and does not throw it
+ *  Check if the module returns a new instance of Error class
+ *  and does not throw it, thus not stopping the Node process.
+ *
+ *  This is the test validator for all invalid parameter values/data types.
  *
  * @param {string} info
  * @param {any} value
  * @returns {*}
  */
-export default function invalidParam_returnsError(
+export default function(
     info    : string,
     value?  : any
 ) : void {
-    it(`${shouldReturnError} ${info}`, () => {
+
+    it(`${shouldReturn} ${info} value/data type`, () : void => {
         //  Does not throw an error
-        assert.doesNotThrow(() => _(value) as Error, Error);
+        assert.doesNotThrow(() => npmModule(value) as Error, Error);
         //  But returns an instance of Error class
-        assert.deepEqual(() => _(value) as Error, new Error('error'));
+        assert.deepEqual(() => npmModule(value) as Error, new Error('error'));
     });
 }

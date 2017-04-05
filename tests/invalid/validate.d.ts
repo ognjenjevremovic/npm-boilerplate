@@ -1,12 +1,12 @@
 /**
  * @description
- *  Check if the value returns
- *  a new instance of Error
- *  and does not throw it
+ *  Check if the module returns a new instance of Error class
+ *  and does not throw it, thus not stopping the Node process.
+ *
+ *  This is the test validator for all invalid parameter values/data types.
  *
  * @param {string} info
  * @param {any} value
- * @param {any} comparator
  * @returns {*}
  */
-export default function invalidParam_returnsError(info : string, value? : any, comparator? : any) : void;
+export default function (info: string, value?: any): void;

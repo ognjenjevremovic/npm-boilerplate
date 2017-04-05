@@ -3,25 +3,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //  Dependancie
 var assert = require("assert");
 var __1 = require("../..");
-//  Should return an Error
-var shouldReturnError = 'Should return an instance of Error ->';
+//  What should the module return
+var shouldReturn = 'Should return an instance of Error class ->';
 /**
  * @description
- *  Check if the value returns
- *  a new instance of Error
- *  and does not throw it
+ *  Check if the module returns a new instance of Error class
+ *  and does not throw it, thus not stopping the Node process.
+ *
+ *  This is the test validator for all invalid parameter values/data types.
  *
  * @param {string} info
  * @param {any} value
  * @returns {*}
  */
-function invalidParam_returnsError(info, value) {
-    it(shouldReturnError + " " + info, function () {
+function default_1(info, value) {
+    it(shouldReturn + " " + info + " value/data type", function () {
         //  Does not throw an error
         assert.doesNotThrow(function () { return __1.default(value); }, Error);
         //  But returns an instance of Error class
         assert.deepEqual(function () { return __1.default(value); }, new Error('error'));
     });
 }
-exports.default = invalidParam_returnsError;
+exports.default = default_1;
 //# sourceMappingURL=validate.js.map

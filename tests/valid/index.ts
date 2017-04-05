@@ -7,8 +7,11 @@
  *
  * @export
  */
-export default function() {
-    describe('Valid parameter supplied', () => {
-
+export default function() : void {
+    describe('Parameter passed is valid', () : void => {
+        /* * * * * * * * * * * * * * * * *
+         *  Valid value parameter tests  *
+         *           goes here           *
+         * * * * * * * * * * * * * * * * */
     });
 }

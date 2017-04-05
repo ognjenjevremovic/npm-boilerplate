@@ -1,35 +1,34 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-//  Tests
-var invalidDataTypes_1 = require("./invalidDataTypes");
-var string_1 = require("./string");
 /**
  * @description
+ *  Batch test for the invalid data type parameter value supplied.
  *  Tests should pass!
  *
  * @export
  */
-function dataTypes() {
-    describe('Value passed is of invalid data type', function () {
-        invalidDataTypes_1.nullValue();
-        invalidDataTypes_1.booleanValue();
-        invalidDataTypes_1.numberValue();
-        invalidDataTypes_1.functionValue();
-        invalidDataTypes_1.errorObjectValue();
-        invalidDataTypes_1.arrayValue();
-        invalidDataTypes_1.objectValue();
+function invalidDataTypes() {
+    describe('Parameter passed is of invalid data type', function () {
+        /* * * * * * * * * * * * * * * * * * * *
+         *  Invalid data type parameter tests  *
+         *              goes here              *
+         * * * * * * * * * * * * * * * * * * * */
     });
 }
-exports.dataTypes = dataTypes;
+exports.invalidDataTypes = invalidDataTypes;
 /**
  * @description
+ *  Batch test for the invalid parameter value supplied.
  *  Tests should pass!
  *
  * @export
  */
 function invalidValues() {
-    describe('Value passed is of invalid value', function () {
-        string_1.default();
+    describe('Parameter passed is of invalid value', function () {
+        /* * * * * * * * * * * * * * * * * *
+         *  Invalid value parameter tests  *
+         *            goes here            *
+         * * * * * * * * * * * * * * * * * */
     });
 }
 exports.invalidValues = invalidValues;
