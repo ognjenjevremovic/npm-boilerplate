@@ -31,10 +31,10 @@ Now go and write some code.
 All the modules I produce are freely available for you to use.
 They can be found on the [npm registry, under my name](https://www.npmjs.com/~ognjen.jevremovic).
 
-Because of the easy of use of all the modules I produce, I conveniently prefix them with ***pretty-easy***.
-You can found a list of all the modules [here](https://www.npmjs.com/~ognjen.jevremovic).
+Because of the ease of use of all the modules I produce, I conveniently prefix them with ***pretty-easy***.
+You can found a list of all the *pretty-easy* modules [here](https://www.npmjs.com/~ognjen.jevremovic).
 
-I develop them using **TypeScript** and all the test coverages are done using **TypeScript** as well with **Mocha** library alongside with the Node's **assert** module.
+I develop them using **TypeScript** and all the test coverages are done using **TypeScript** and **Mocha** library alongside the Node's [**Assertion**](https://nodejs.org/dist/latest-v6.x/docs/api/assert.html) module.
 There are also a lot of Node **scripts** defined (think of them as *bash/shell commands*) to make the process much faster and more ***automagical***.
 
 &nbsp;
