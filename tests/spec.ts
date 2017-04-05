@@ -6,11 +6,26 @@ import {
 } from './invalid';
 
 
-//  Test - Invalid data type (Returns an instance Error class)
+/**
+ * @description
+ *  Perform the batch test for arguments of invalid data types
+ *
+ * @returns {*}
+*/
 describe('Invalid parameter data type supplied', invalidDataTypes);
 
-//  Test - Invalid value (Returns an instance Error class)
+/**
+ * @description
+ *  Perform the batch test for arguments of invalid values
+ *
+ * @returns {*}
+*/
 describe('Invalid parameter value supplied', invalidValues);
 
-//  Test - Valid parameter value (Returns an instance of CustomDate class)
+/**
+ * @description
+ *  Perform the batch test for valid valued arguments
+ *
+ * @returns {*}
+*/
 describe('Valid parameter value supplied', validValues);
