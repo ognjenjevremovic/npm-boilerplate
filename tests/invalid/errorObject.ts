@@ -1,5 +1,5 @@
 //  Dependancies
-import { default as validate } from './validate';
+import { default as performArgumentValidation } from './validate';
 
 
 /**
@@ -23,16 +23,18 @@ function assertionArguments() : Error[] {
  *  Instance of Error class parameter value/data type tests.
  *
  * @export
- * @returns {*}
  */
 export default function() : void {
 
-    describe('Error value/data type', () : void => {
+    describe('Error data type value', () : void => {
 
-        const info : string = 'from instance of Error class';
+        const dataTypeOfArgumentSupplied : string = 'instance of Error class';
 
-        for(const parameter of assertionArguments()) {
-            validate(info, parameter);
+        for(const argumentSuppliedToMethod of assertionArguments()) {
+            performArgumentValidation(
+                dataTypeOfArgumentSupplied,
+                argumentSuppliedToMethod
+            );
         }
     });
 }

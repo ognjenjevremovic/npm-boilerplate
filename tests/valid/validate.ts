@@ -15,15 +15,19 @@ const shouldReturn : string = 'Should return ->';
  *
  *  This is the test validator for all valid parameter values.
  *
- * @param {string} info
- * @param {any} value
- * @param {any} equalityCheck
- * @returns {*}
+ * @export
+ * @param {string} dataTypeOfArgumentSupplied
+ * @param {*} moduleReturnValueShouldBe
+ * @param {*} [valuePassedAsParameterToTheModule]
  */
 export default function(
-    info            : string,
-    value           : any,
-    equalityCheck   : any
+    dataTypeOfArgumentSupplied          : string,
+    moduleReturnValueShouldBe           : any,
+    valuePassedAsParameterToTheModule?  : any
 ) : void {
-    it(`${shouldReturn} ${info} value/data type`, () : void =>  assert.equal(npmModule(value), equalityCheck));
+
+    it(`
+        ${shouldReturn} ${dataTypeOfArgumentSupplied} value/data type`,
+        () : void => assert.equal(npmModule(valuePassedAsParameterToTheModule), moduleReturnValueShouldBe)
+    );
 }

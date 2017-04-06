@@ -8,7 +8,7 @@
  * @export
  */
 export default function() : void {
-    describe('Parameter passed is valid', () : void => {
+    describe('Parameter passed is of valid data type and value', () : void => {
         /* * * * * * * * * * * * * * * * *
          *  Valid value parameter tests  *
          *           goes here           *

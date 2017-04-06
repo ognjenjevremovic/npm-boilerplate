@@ -1,5 +1,5 @@
 //  Dependancies
-import { default as validate } from './validate';
+import { default as performArgumentValidation } from './validate';
 
 
 /**
@@ -23,16 +23,18 @@ function assertionArguments() : Date[] {
  *  Instance of Date class parameter value/data type tests.
  *
  * @export
- * @returns {*}
  */
 export default function() : void {
 
-    describe('Date value/data type', () : void => {
+    describe('Date data type value', () : void => {
 
-        const info : string = 'from instance of Date class';
+        const dataTypeOfArgumentSupplied : string = 'instance of Date class';
 
-        for(const parameter of assertionArguments()) {
-            validate(info, parameter);
+        for(const argumentSuppliedToMethod of assertionArguments()) {
+            performArgumentValidation(
+                dataTypeOfArgumentSupplied,
+                argumentSuppliedToMethod
+            );
         }
     });
 }

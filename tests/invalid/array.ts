@@ -1,14 +1,14 @@
 //  Dependancies
-import { default as validate } from './validate';
+import { default as performArgumentValidation } from './validate';
 
 
 /**
  * @description
  *  Array parameters for which assertion is performed
  *
- * @returns {Array<Array<any>>}
+ * @returns {any[]}
  */
-function assertionArguments() : Array<Array<any>> {
+function assertionArguments() : any[] {
 
     return [
         [ ],
@@ -26,16 +26,18 @@ function assertionArguments() : Array<Array<any>> {
  *  Array parameter value/data type tests.
  *
  * @export
- * @returns {*}
  */
 export default function() : void {
 
-    describe('Array value/data type', () : void => {
+    describe('Array data type value', () : void => {
 
-        const info : string = 'from Array';
+        const dataTypeOfArgumentSupplied : string = 'Array';
 
-        for(const parameter of assertionArguments()) {
-            validate(info, parameter);
+        for(const argumentSuppliedToMethod of assertionArguments()) {
+            performArgumentValidation(
+                dataTypeOfArgumentSupplied,
+                argumentSuppliedToMethod
+            );
         }
     });
 }

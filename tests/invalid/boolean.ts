@@ -1,5 +1,5 @@
 //  Dependancies
-import { default as validate } from './validate';
+import { default as performArgumentValidation } from './validate';
 
 
 /**
@@ -21,16 +21,18 @@ function assertionArguments() : boolean[] {
  *  Boolean parameter value/data type tests.
  *
  * @export
- * @returns {*}
  */
 export default function() : void {
 
-    describe('Boolean value/data type', () : void => {
+    describe('Boolean data type value', () : void => {
 
-        const info : string = 'from boolean';
+        const dataTypeOfArgumentSupplied : string = 'boolean';
 
-        for(const parameter of assertionArguments()) {
-            validate(info, parameter);
+        for(const argumentSuppliedToMethod of assertionArguments()) {
+            performArgumentValidation(
+                dataTypeOfArgumentSupplied,
+                argumentSuppliedToMethod
+            );
         }
     });
 }

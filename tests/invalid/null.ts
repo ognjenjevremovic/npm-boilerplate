@@ -1,5 +1,5 @@
 //  Dependancies
-import { default as validate } from './validate';
+import { default as performArgumentValidation } from './validate';
 
 
 /**
@@ -7,14 +7,16 @@ import { default as validate } from './validate';
  *  Null value parameter value/data type test.
  *
  * @export
- * @returns {*}
  */
 export default function() : void {
 
-    describe('Null value/data type', () : void => {
+    describe('Null data type value', () : void => {
 
-        const info : string = 'from null';
+        const dataTypeOfArgumentSupplied : string = 'null';
 
-        validate(info, null);
+        performArgumentValidation(
+            dataTypeOfArgumentSupplied,
+            null
+        );
     });
 }

@@ -5,29 +5,31 @@ import { default as npmModule } from '../..';
 
 
 //  What should the module return
-const shouldReturn : string = 'Should return an instance of Error class ->';
+const moduleShouldReturn : string = 'Should return an instance of Error class from ->';
 
 
 /**
  * @description
  *  Check if the module returns a new instance of Error class
- *  and does not throw it, thus not stopping the Node process.
+ *  and does not throw it, thus not stopping the Node process,
+ *  when the inappropriate value/data type is passed.
  *
  *  This is the test validator for all invalid parameter values/data types.
  *
- * @param {string} info
- * @param {any} value
- * @returns {*}
+ * @export
+ * @param {string} dataTypeOfArgumentSupplied
+ * @param {*} [parameterValuePassedAsArgument]
  */
 export default function(
-    info    : string,
-    value?  : any
+    dataTypeOfArgumentSupplied      : string,
+    parameterValuePassedAsArgument? : any
 ) : void {
 
-    it(`${shouldReturn} ${info} value/data type`, () : void => {
-        //  Does not throw an error
-        assert.doesNotThrow(() => npmModule(value) as Error, Error);
-        //  But returns an instance of Error class
-        assert.deepEqual(() => npmModule(value) as Error, new Error('error'));
-    });
+    it(
+        `${moduleShouldReturn} ${dataTypeOfArgumentSupplied} value/data type`,
+        () : void => {
+            assert.doesNotThrow(() => npmModule(parameterValuePassedAsArgument) as Error, Error);
+            assert.deepEqual(() => npmModule(parameterValuePassedAsArgument) as Error, new Error('error'));
+        }
+    );
 }
