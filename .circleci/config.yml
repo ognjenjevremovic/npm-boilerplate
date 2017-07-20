@@ -1,0 +1,55 @@
+version: 2.0
+
+jobs:
+  "node-4.8":
+    docker:
+      - image: circleci/node:4.8
+    working_directory: ~/tmp
+    steps:
+      - checkout
+      - run: npm install
+      - run:
+          name: Run tests node 4.8
+          command: npm test
+
+  "node-6.10":
+    docker:
+      - image: circleci/node:6.10
+    working_directory: ~/tmp
+    steps:
+      - checkout
+      - run: npm install
+      - run:
+          name: Run tests node 6.10
+          command: npm test
+
+  "node-7":
+    docker:
+      - image: circleci/node:7
+    working_directory: ~/tmp
+    steps:
+      - checkout
+      - run: npm install
+      - run:
+          name: Run tests node 7
+          command: npm test
+
+  "node-latest":
+    docker:
+      - image: circleci/node:latest
+    working_directory: ~/tmp
+    steps:
+      - checkout
+      - run: npm install
+      - run:
+          name: Run tests node latest
+          command: npm test
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - "node-4.8"
+      - "node-6.10"
+      - "node-7"
+      - "node-latest"
