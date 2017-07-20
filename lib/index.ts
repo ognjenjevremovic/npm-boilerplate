@@ -1,1 +1,1 @@
-export { default } from './<_moduleEntryPoint_>';
+export ModuleName from './<_moduleEntryPoint_>';

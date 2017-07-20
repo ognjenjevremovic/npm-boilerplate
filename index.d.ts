@@ -1,1 +1,1 @@
-export { default } from './dist';
+export ModuleName from './dist';
