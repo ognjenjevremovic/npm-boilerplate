@@ -20,17 +20,23 @@
   },
   "scripts": {
     "test": "mocha ./tests/spec.js",
-    
-    "compile" : "npm run remove:compiled && npm run tsc && npm run move:test && npm run move:base",
-    "remove:compiled": "npm run remove:dist && npm run remove:tests",
+    "test:coverage": "istanbul cover _mocha tests/spec.js -x tests/**/*",
 
-    "tsc": "tsc",
+    "compile": "npm run remove:compiled && npm run compile:base && npm run compile:tests",
+    "remove:compiled": "npm run remove:base && npm run remove:tests",
 
-    "move:base" : "cp -ap dist/lib/* dist/ && rm -rf dist/lib",
-    "move:test" : "cp -ap dist/tests/* tests/ && rm -rf dist/tests",
+    "compile:base": "tsc -p ./lib",
+    "compile:tests": "tsc -p ./tests",
 
-    "remove:tests": "rm -f tests/*.js && rm -f tests/*.js.map && rm -f tests/*.d.ts && rm -f tests/**/*.js && rm -f tests/**/*.js.map && rm -f tests/**/*.d.ts",
-    "remove:dist": "rm -f ./dist/*.js && rm -f ./dist/*.js.map && rm -f ./dist/**/*.js && rm -f ./dist/**/*.js.map"
+    "remove:base": "npm run remove:base:compiled && npm run remove:base:maps && npm run remove:base:types",
+    "remove:base:compiled": "rm -f ./dist/*.js && rm -f ./dist/**/*.js",
+    "remove:base:maps": "rm -f ./dist/*.js.map && rm -f ./dist/**/*.js.map",
+    "remove:base:types": "rm -f ./dist/*.d.ts && rm -f ./dist/**/*.d.ts",
+
+    "remove:tests": "npm run remove:tests:compiled && npm run remove:tests:maps && npm run remove:tests:types",
+    "remove:tests:compiled": "rm -f ./tests/*.js && rm -f ./tests/**/*.js",
+    "remove:tests:maps": "rm -f ./tests/*.js.map && rm -f ./tests/**/*.js.map",
+    "remove:tests:types": "rm -f ./tests/*.d.ts && rm -f ./tests/**/*.d.ts"
   },
   "keywords": [
     "pretty-easy-dates",
@@ -38,12 +44,11 @@
     "pretty-easy",
     "prettyeasy"
   ],
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/mocha": "^2.2.40",
     "@types/node": "^7.0.8",
+    "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
     "typescript": "^2.2.1"
   }
